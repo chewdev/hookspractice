@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 export default function Form() {
-  const [input1, setInput1] = useState("");
+  const [input1, setInput1] = useState(localStorage.getItem("input1") || "");
   const [setValue, setSetValue] = useState("");
 
   useEffect(
@@ -9,6 +9,13 @@ export default function Form() {
       if (input1 === "Update") {
         setSetValue(input1);
       }
+    },
+    [input1]
+  );
+
+  useEffect(
+    () => {
+      localStorage.setItem("input1", input1);
     },
     [input1]
   );
