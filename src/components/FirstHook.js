@@ -1,8 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function Form() {
   const [input1, setInput1] = useState("");
   const [setValue, setSetValue] = useState("");
+
+  useEffect(
+    () => {
+      if (input1 === "Update") {
+        setSetValue(input1);
+      }
+    },
+    [input1]
+  );
+
   return (
     <div>
       <input
