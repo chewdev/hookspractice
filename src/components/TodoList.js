@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import TodoListItem from "./TodoListItem";
 
 export default function TodoList() {
   const [todoItems, setTodoItems] = useState([]);
@@ -21,17 +22,17 @@ export default function TodoList() {
       </button>
       <ul>
         {todoItems.map((item, ind) => (
-          <li
-            key={ind}
-            onClick={() =>
+          <TodoListItem
+            item={item}
+            ind={ind}
+            deleteItem={() =>
               setTodoItems([
                 ...todoItems.slice(0, ind),
                 ...todoItems.slice(ind + 1)
               ])
             }
-          >
-            {item}
-          </li>
+            todoItems={todoItems}
+          />
         ))}
       </ul>
     </div>
