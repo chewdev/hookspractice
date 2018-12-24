@@ -14,6 +14,9 @@ export default function TodoList() {
       />
       <button
         onClick={() => {
+          if (todoInput === "") {
+            return;
+          }
           setTodoItems([...todoItems, todoInput]);
           setTodoInput("");
         }}
