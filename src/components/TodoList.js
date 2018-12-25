@@ -34,6 +34,16 @@ export default function TodoList() {
                 ...todoItems.slice(ind + 1)
               ])
             }
+            editItem={value => {
+              const newItems = todoItems.map((item, index) => {
+                if (ind !== index) {
+                  return item;
+                }
+                return value;
+              });
+
+              setTodoItems(newItems);
+            }}
             todoItems={todoItems}
           />
         ))}
