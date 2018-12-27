@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import TodoListItem from "./TodoListItem";
 
 export default function TodoList() {
@@ -7,6 +8,8 @@ export default function TodoList() {
 
   return (
     <div>
+      <Link to="/lazy">Lazy Loaded</Link>
+      <br />
       <input
         type="text"
         value={todoInput}
